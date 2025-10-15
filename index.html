@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>التوب - بوت كيرا</title>
+<style>
+:root {
+  --bg-dark: #0b0b0b;
+  --text: #f9f9f9;
+  --muted: #b0b0b0;
+  --card: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0000 0%, #1a0505 50%, #0a0000 100%);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 25px;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 50%, rgba(180, 0, 0, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(120, 0, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+  animation: moveGradient 10s ease infinite;
+}
+
+@keyframes moveGradient {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  position: relative;
+  z-index: 1;
+}
+
+/* العنوان */
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+  animation: fadeIn 1s ease;
+}
+
+.header h1 {
+  font-size: 3.2em;
+  color: #ffffff;
+  font-weight: 900;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 20px 40px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.1);
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.5),
+    0 0 40px rgba(255, 255, 255, 0.3),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  animation: glassShine 3s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.header h1::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes glassShine {
+  0%, 100% { 
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.1);
+  }
+  50% { 
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 20px rgba(255, 0, 0, 0.4)); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 30px rgba(255, 0, 0, 0.6)); }
+}
+
+.header p {
+  color: var(--muted);
+  margin-top: 10px;
+  font-size: 1.1em;
+  animation: fadeIn 1.5s ease;
+}
+
+/* زر التحديث */
+.refresh-btn {
+  margin-top: 25px;
+  background: linear-gradient(135deg, #cc0000 0%, #660000 100%);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 40px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(204, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.refresh-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 0, 0, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+  z-index: -1;
+}
+
+.refresh-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.refresh-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(204, 0, 0, 0.7);
+}
+
+.refresh-btn:active {
+  transform: translateY(-1px);
+}
+
+/* البحث */
+.search-box {
+  text-align: center;
+  margin: 40px 0 30px;
+}
+
+.search-input {
+  background: var(--card);
+  border: 2px solid var(--border);
+  border-radius: 50px;
+  width: 350px;
+  padding: 14px 25px;
+  color: var(--text);
+  outline: none;
+  text-align: right;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  font-size: 1em;
+}
+
+.search-input:focus {
+  border-color: #cc0000;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
+}
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+/* الأقسام */
+.sections-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+  gap: 25px;
+  animation: fadeIn 1s ease;
+}
+
+.section-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 25px;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #cc0000 0%, #660000 50%, #cc0000 100%);
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.section-card:hover {
+  background: rgba(255,255,255,0.08);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(204, 0, 0, 0.3);
+  border-color: rgba(204, 0, 0, 0.4);
+}
+
+.section-card:hover::before {
+  opacity: 1;
+  animation: shimmer 2s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+}
+
+.section-title {
+  font-weight: bold;
+  color: #fff;
+  font-size: 1.4em;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+}
+
+.player-list {
+  list-style: none;
+}
+
+.player-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+  margin: 8px 0;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.player-item:hover {
+  background: rgba(204, 0, 0, 0.15);
+  border-color: rgba(204, 0, 0, 0.4);
+  transform: translateX(-5px);
+}
+
+.player-rank {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.4), rgba(102, 0, 0, 0.4));
+  border-radius: 50%;
+  font-size: 1.1em;
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.3);
+}
+
+.player-info {
+  flex: 1;
+  margin: 0 15px;
+}
+
+.player-name {
+  font-weight: bold;
+  color: var(--text);
+  font-size: 1.05em;
+  margin-bottom: 3px;
+}
+
+.player-username {
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+.player-wpm {
+  border: 2px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(204, 0, 0, 0.3), rgba(102, 0, 0, 0.3));
+  box-shadow: 0 4px 15px rgba(204, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.player-item:hover .player-wpm {
+  border-color: #cc0000;
+  box-shadow: 0 6px 20px rgba(204, 0, 0, 0.4);
+}
+
+/* زر عرض المزيد */
+.load-more {
+  display: block;
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.load-more:hover {
+  background: rgba(204, 0, 0, 0.2);
+  border-color: #cc0000;
+  transform: translateY(-2px);
+}
+
+/* دائرة التحميل */
+.loader {
+  border: 4px solid rgba(255,255,255,0.1);
+  border-top: 4px solid #cc0000;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin: 60px auto;
+  animation: spin 1s linear infinite;
+  box-shadow: 0 0 20px rgba(204, 0, 0, 0.4);
+}
+
+.last-update {
+  text-align: center;
+  margin-top: 30px;
+  color: var(--muted);
+  font-size: 0.95em;
+  animation: fadeIn 2s ease;
+}
+
+/* الحركات */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* استجابة الموبايل */
+@media (max-width: 768px) {
+  .header h1 { 
+    font-size: 2.2em; 
+  }
+  .search-input { 
+    width: 90%; 
+    max-width: 350px;
+  }
+  .sections-grid {
+    grid-template-columns: 1fr;
+  }
+  .player-rank {
+    width: 40px;
+    height: 40px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+  .header h1 {
+    font-size: 1.8em;
+  }
+  .section-card {
+    padding: 18px;
+  }
+  .player-item {
+    padding: 10px;
+  }
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>التوب - بوت كيرا الكنق</h1>
+      <p>أفضل اللاعبين في جميع الأقسام</p>
+      <button class="refresh-btn" onclick="loadTopScores()">تحديث البيانات</button>
+    </div>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن اسم اللاعب أو اليوزر..." oninput="filterPlayers()">
+    </div>
+
+    <div id="content" class="sections-grid">
+      <div class="loader"></div>
+    </div>
+
+    <div class="last-update" id="lastUpdate"></div>
+  </div>
+
+<script>
+const sectionNames = {
+  "simple": { name: "طش عشوائي" },
+  "simple_external": { name: "طش جاهز" },
+  "repeat_mobile": { name: "تك عشوائي" },
+  "repeat_external": { name: "تك جاهز" },
+  "normal": { name: "صع متوسطة" },
+  "reverse": { name: "عكسي" },
+  "hukam": { name: "جر جرايد" },
+  "دب": { name: "دب دبل" },
+  "jum": { name: "جم جمل" },
+  "shar": { name: "شر شرط" }
+};
+
+let allPlayersData = {};
+
+async function loadTopScores() {
+  const content = document.getElementById('content');
+  content.innerHTML = '<div class="loader"></div>';
+  try {
+    const res = await fetch('top_scores.json?t=' + Date.now());
+    const data = await res.json();
+    allPlayersData = data;
+    renderSections(data);
+    document.getElementById('lastUpdate').textContent =
+      'آخر تحديث: ' + new Date().toLocaleString('ar-SA');
+  } catch (e) {
+    content.innerHTML = '<div style="text-align:center;color:#aaa;">خطأ في تحميل البيانات</div>';
+  }
+}
+
+function renderSections(data) {
+  const content = document.getElementById('content');
+  content.innerHTML = '';
+  Object.keys(sectionNames).forEach(key => {
+    const sectionData = data[key] || [];
+    const sectionInfo = sectionNames[key];
+
+    const card = document.createElement('div');
+    card.className = 'section-card';
+    const header = `
+      <div class="section-header">
+        <span class="section-title">${sectionInfo.name}</span>
+      </div>`;
+    const list = document.createElement('ul');
+    list.className = 'player-list';
+    sectionData.forEach((player, index) => {
+      const username = player.username ? `@${player.username}` : 'لا يوجد';
+      list.innerHTML += `
+        <li class="player-item">
+          <span class="player-rank">${index + 1}</span>
+          <div class="player-info">
+            <div class="player-name">${player.display_name || 'مجهول'}</div>
+            <div class="player-username">${username}</div>
+          </div>
+          <div class="player-wpm">${player.wpm} WPM</div>
+        </li>`;
+    });
+
+    card.innerHTML = header;
+    card.appendChild(list);
+    content.appendChild(card);
+  });
+}
+
+function filterPlayers() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  if (!query) {
+    renderSections(allPlayersData);
+    return;
+  }
+
+  const filteredData = {};
+  Object.keys(allPlayersData).forEach(key => {
+    filteredData[key] = allPlayersData[key].filter(p =>
+      (p.display_name && p.display_name.toLowerCase().includes(query)) ||
+      (p.username && p.username.toLowerCase().includes(query))
+    );
+  });
+  renderSections(filteredData);
+}
+
+loadTopScores();
+setInterval(loadTopScores, 60000);
+</script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+{
+  "normal": [
+    {
+      "user_id": 6970398787,
+      "wpm": 149,
+      "display_name": "راكان الحربي",
+      "username": "ramq4"
+    },
+    {
+      "user_id": 6566808455,
+      "wpm": 126,
+      "display_name": "11+1=1",
+      "username": "phenomeenon"
+    },
+    {
+      "user_id": 6584331664,
+      "wpm": 104,
+      "display_name": "I Like It When You RUN",
+      "username": "tfkkt"
+    },
+    {
+      "user_id": 8425060981,
+      "wpm": 103,
+      "display_name": "فاي",
+      "username": "DUU8U"
+    },
+    {
+      "user_id": 1835150168,
+      "wpm": 102,
+      "display_name": "kira",
+      "username": "helIsing"
+    }
+  ],
+  "repeat_external": [
+    {
+      "user_id": 7818060526,
+      "wpm": 242,
+      "display_name": "Sufyan.",
+      "username": "7818060526"
+    },
+    {
+      "user_id": 8081895254,
+      "wpm": 172,
+      "display_name": "ً",
+      "username": "8081895254"
+    },
+    {
+      "user_id": 7240558086,
+      "wpm": 159,
+      "display_name": "سايرون",
+      "username": "rSairon"
+    },
+    {
+      "user_id": 6584331664,
+      "wpm": 140,
+      "display_name": "I Like It When You RUN",
+      "username": "tfkkt"
+    },
+    {
+      "user_id": 7499629005,
+      "wpm": 126,
+      "display_name": "flap",
+      "username": "7499629005"
+    }
+  ],
+  "repeat_mobile": [
+    {
+      "user_id": 7818060526,
+      "wpm": 319,
+      "display_name": "Sufyan.",
+      "username": "7818060526"
+    },
+    {
+      "user_id": 6827724993,
+      "wpm": 293,
+      "display_name": "الصهـيوني مزآميز .",
+      "username": "mazamez2"
+    },
+    {
+      "user_id": 6645135003,
+      "wpm": 291,
+      "display_name": "modex",
+      "username": "6645135003"
+    },
+    {
+      "user_id": 8425060981,
+      "wpm": 242,
+      "display_name": "فاي",
+      "username": "DUU8U"
+    },
+    {
+      "user_id": 6967724872,
+      "wpm": 228,
+      "display_name": "لَيل بلا قمر",
+      "username": "6967724872"
+    }
+  ],
+  "reverse": [
+    {
+      "user_id": 7818060526,
+      "wpm": 156,
+      "display_name": "Sufyan.",
+      "username": "7818060526"
+    },
+    {
+      "user_id": 7240558086,
+      "wpm": 145,
+      "display_name": "سايرون",
+      "username": "rSairon"
+    },
+    {
+      "user_id": 5737232968,
+      "wpm": 144,
+      "display_name": "Nasr",
+      "username": "Pircovic"
+    },
+    {
+      "user_id": 6566808455,
+      "wpm": 119,
+      "display_name": "11+1=1",
+      "username": "phenomeenon"
+    },
+    {
+      "user_id": 6584331664,
+      "wpm": 111,
+      "display_name": "I Like It When You RUN",
+      "username": "tfkkt"
+    }
+  ],
+  "simple": [
+    {
+      "user_id": 7818060526,
+      "wpm": 269,
+      "display_name": "Sufyan.",
+      "username": "7818060526"
+    },
+    {
+      "user_id": 6827724993,
+      "wpm": 261,
+      "display_name": "الصهـيوني مزآميز .",
+      "username": "mazamez2"
+    },
+    {
+      "user_id": 6645135003,
+      "wpm": 244,
+      "display_name": "modex",
+      "username": "6645135003"
+    },
+    {
+      "user_id": 5737232968,
+      "wpm": 198,
+      "display_name": "Nasr",
+      "username": "Pircovic"
+    },
+    {
+      "user_id": 8425060981,
+      "wpm": 155,
+      "display_name": "فاي",
+      "username": "DUU8U"
+    }
+  ],
+  "simple_external": [
+    {
+      "user_id": 6827724993,
+      "wpm": 263,
+      "display_name": "الصهـيوني مزآميز .",
+      "username": "mazamez2"
+    },
+    {
+      "user_id": 7818060526,
+      "wpm": 251,
+      "display_name": "Sufyan.",
+      "username": "7818060526"
+    },
+    {
+      "user_id": 6566808455,
+      "wpm": 221,
+      "display_name": "11+1=1",
+      "username": "phenomeenon"
+    },
+    {
+      "user_id": 8425060981,
+      "wpm": 194,
+      "display_name": "فاي",
+      "username": "DUU8U"
+    },
+    {
+      "user_id": 5737232968,
+      "wpm": 177,
+      "display_name": "Nasr",
+      "username": "Pircovic"
+    }
+  ],
+  "hukam": [
+    {
+      "user_id": 5037841076,
+      "wpm": 107,
+      "display_name": "برقاويّ",
+      "username": "ITheking7mod"
+    },
+    {
+      "user_id": 5561561885,
+      "wpm": 78,
+      "display_name": "ExoTIIK",
+      "username": "ExoTIlK"
+    },
+    {
+      "user_id": 6566808455,
+      "wpm": 67,
+      "display_name": "11+1=1",
+      "username": "phenomeenon"
+    }
+  ],
+  "دب": [
+    {
+      "user_id": 6566808455,
+      "wpm": 220,
+      "display_name": "11+1=1",
+      "username": "phenomeenon"
+    },
+    {
+      "user_id": 7240558086,
+      "wpm": 214,
+      "display_name": "سايرون",
+      "username": "rSairon"
+    },
+    {
+      "user_id": 5737232968,
+      "wpm": 204,
+      "display_name": "Nasr",
+      "username": "Pircovic"
+    },
+    {
+      "user_id": 1835150168,
+      "wpm": 175,
+      "display_name": "kira",
+      "username": "helIsing"
+    },
+    {
+      "user_id": 6584331664,
+      "wpm": 173,
+      "display_name": "I Like It When You RUN",
+      "username": "tfkkt"
+    }
+  ],
+  "jum": [
+    {
+      "user_id": 7240558086,
+      "wpm": 127,
+      "display_name": "سايرون",
+      "username": "rSairon"
+    },
+    {
+      "user_id": 5737232968,
+      "wpm": 117,
+      "display_name": "Nasr",
+      "username": "Pircovic"
+    },
+    {
+      "user_id": 5561561885,
+      "wpm": 102,
+      "display_name": "ExoTIIK",
+      "username": "ExoTIlK"
+    },
+    {
+      "user_id": 6584331664,
+      "wpm": 93,
+      "display_name": "I Like It When You RUN",
+      "username": "tfkkt"
+    },
+    {
+      "user_id": 7369144894,
+      "wpm": 83,
+      "display_name": "Akai",
+      "username": "Akai204"
+    }
+  ],
+  "shar": [
+    {
+      "user_id": 5737232968,
+      "wpm": 216,
+      "display_name": "Nasr",
+      "username": "Pircovic"
+    },
+    {
+      "user_id": 6967724872,
+      "wpm": 179,
+      "display_name": "لَيل بلا قمر",
+      "username": "6967724872"
+    },
+    {
+      "user_id": 7286787586,
+      "wpm": 162,
+      "display_name": "9MT .",
+      "username": "iv9dx"
+    },
+    {
+      "user_id": 8081895254,
+      "wpm": 158,
+      "display_name": "ً",
+      "username": "8081895254"
+    },
+    {
+      "user_id": 2033295629,
+      "wpm": 141,
+      "display_name": "فـِي احضان السكون",
+      "username": "2033295629"
+    }
+  ]
+}
